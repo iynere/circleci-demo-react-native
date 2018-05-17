@@ -160,6 +160,10 @@ workflows:
   node-android-ios:
     jobs:
       - node
+      - test_gate:
+          type: approval
+          requires:
+            - node
       - android:
           requires:
             - node
