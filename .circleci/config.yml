@@ -185,10 +185,10 @@ workflows:
               only:
                 - workflows-webinar
                 - /workflows-.*/
-    # triggers:
-    #   - schedule:
-    #       cron: "40 18 * * *"
-    #       filters:
-    #         branches:
-    #           only:
-    #             - workflows-webinar
+    triggers:
+      - schedule:
+          cron: "35 18 * * *"
+          filters:
+            branches:
+              only:
+                - scheduled
