@@ -160,6 +160,7 @@ workflows:
   node-android-ios:
     jobs:
       - node
+
       - test_gate:
           type: approval
           requires:
@@ -168,17 +169,21 @@ workflows:
             branches:
               only:
                 - workflows-webinar
+
       - android:
           requires:
             - test_gate
+
       - ios:
           requires:
             - test_gate
+
       - deploy_gate:
           type: approval
           requires:
             - android
             - ios
+
       - deploy:
           requires:
             - deploy_gate
