@@ -161,7 +161,7 @@ workflows:
     jobs:
       - start_gate:
           type: approval
-      - node
+      - node:
           requires:
             - start_gate
       - android:
