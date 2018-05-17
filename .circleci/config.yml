@@ -177,12 +177,12 @@ workflows:
           filters:
             branches:
               only:
-                - webinar-demo
-                - /webinar-.*/
+                - workflows-webinar
+                - /workflows-.*/
     triggers:
       - schedule:
-          cron: "26 22 * * *"
+          cron: "40 18 * * *"
           filters:
             branches:
               only:
-                - webinar-demo
+                - workflows-webinar
