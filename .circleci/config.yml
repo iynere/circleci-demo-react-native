@@ -161,17 +161,21 @@ workflows:
   node-android-ios:
     jobs:
       - node
+
       - android:
           requires:
             - node
+
       - ios:
           requires:
             - node
+
       - deploy_gate:
           type: approval
           requires:
             - android
             - ios
+
       - deploy:
           requires:
             - deploy_gate
