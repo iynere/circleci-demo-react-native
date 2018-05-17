@@ -174,15 +174,3 @@ workflows:
       - deploy:
           requires:
             - deploy_gate
-          filters:
-            branches:
-              only:
-                - workflows-webinar
-                - /workflows-.*/
-    triggers:
-      - schedule:
-          cron: "40 18 * * *"
-          filters:
-            branches:
-              only:
-                - workflows-webinar
