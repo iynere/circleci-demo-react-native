@@ -144,6 +144,17 @@ jobs:
       - store_artifacts:
           path: ios/test-results
 
+  deploy:
+    working_directory: ~/demo-react-native
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - run: echo "ios & android steps passed, so now we can deploy"
+      - run: |
+          echo "let's fail this job"
+          exit 1
+
 workflows:
   version: 2
   node-android-ios:
@@ -155,3 +166,23 @@ workflows:
       - ios:
           requires:
             - node
+      - deploy_gate:
+          type: approval
+          requires:
+            - android
+            - ios
+      - deploy:
+          requires:
+            - deploy_gate
+          filters:
+            branches:
+              only:
+                - webinar-demo
+                - /webinar-.*/
+    triggers:
+      - schedule:
+          cron: "26 22 * * *"
+          filters:
+            branches:
+              only:
+                - webinar-demo
