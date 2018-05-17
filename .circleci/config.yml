@@ -159,8 +159,8 @@ workflows:
   version: 2
   node-android-ios:
     jobs:
-      - start_gate:
-          type: approval
+      # - start_gate:
+      #     type: approval
       - node:
           requires:
             - start_gate
