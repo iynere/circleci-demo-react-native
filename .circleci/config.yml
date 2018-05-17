@@ -166,10 +166,10 @@ workflows:
             - node
       - android:
           requires:
-            - node
+            - test_gate
       - ios:
           requires:
-            - node
+            - test_gate
       - deploy_gate:
           type: approval
           requires:
