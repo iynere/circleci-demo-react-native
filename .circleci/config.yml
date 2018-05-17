@@ -151,9 +151,6 @@ jobs:
     steps:
       - checkout
       - run: echo "ios & android steps passed, so now we can deploy"
-      - run: |
-          echo "let's fail this job"
-          exit 1
 
 workflows:
   version: 2
