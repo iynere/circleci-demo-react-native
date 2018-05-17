@@ -164,6 +164,10 @@ workflows:
           type: approval
           requires:
             - node
+          filters:
+            branches:
+              only:
+                - workflows-webinar
       - android:
           requires:
             - test_gate
